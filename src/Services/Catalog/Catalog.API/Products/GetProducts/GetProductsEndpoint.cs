@@ -1,7 +1,4 @@
-﻿using Catalog.API.Products.CreateProduct;
-using System.Collections;
-
-namespace Catalog.API.Products.GetProducts
+﻿namespace Catalog.API.Products.GetProducts
 {
     //public record GetProductsRequest();
     public record GetProductsResponse(IEnumerable<Product> Products);
@@ -9,20 +6,19 @@ namespace Catalog.API.Products.GetProducts
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapGet("/products",
-                async  (ISender sender) =>   //MediatR
-                {
-                    var result = await sender.Send(new GetProductsQuery());
+            app.MapGet("/products", async  (ISender sender) =>   //MediatR
+            {
+                var result = await sender.Send(new GetProductsQuery());
 
-                    var response = result.Adapt<GetProductsResponse>();
+                var response = result.Adapt<GetProductsResponse>();
 
-                    return Results.Ok(response);
-                })
-                .WithName("GetProducts")
-                .Produces<GetProductsResponse>(StatusCodes.Status200OK)
-                .ProducesProblem(StatusCodes.Status400BadRequest)
-                .WithSummary("Get Products")
-                .WithDescription("Get Products");
+                return Results.Ok(response);
+            })
+            .WithName("GetProducts")
+            .Produces<GetProductsResponse>(StatusCodes.Status200OK)
+            .ProducesProblem(StatusCodes.Status400BadRequest)
+            .WithSummary("Get Products")
+            .WithDescription("Get Products");
         }
     }
 }

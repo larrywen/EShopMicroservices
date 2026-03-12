@@ -12,7 +12,7 @@ internal class CreateProductHandler(IDocumentSession session)
         //save to databse
         //return CreateProductResult result
 
-        var poduct = new Product
+        var product = new Product
         {
             Name = command.Name,
             Category = command.Category,
@@ -23,10 +23,10 @@ internal class CreateProductHandler(IDocumentSession session)
 
         //TODO
         //save to databse
-        session.Store(poduct);
+        session.Store(product);
         await session.SaveChangesAsync(cancellationToken);
 
         //return result
-        return new CreateProductResult(poduct.Id);
+        return new CreateProductResult(product.Id);
     }
 }

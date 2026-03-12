@@ -320,6 +320,25 @@ from postman, Post https://localhost:5050/products > Body > Raw > JSON
 https://pgadmin.org/download/
 pgAdmin 4 v9.13 for windows
 
+67. Test GetProducts Endpoint Connecting to Docker Postgres Container
+make sure docker desktop is up and running, run docker-compose as startup project, to start active postgreSQL database
+
+68. Create Postman Collection for EShop Microservices
+create environment variable Localhost and Docker
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
