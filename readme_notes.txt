@@ -8,21 +8,20 @@ https://github.com/mehmetozkaya
 Source Code:
 https://github.com/aspnetrun/run-aspnetcore-microservices
 
+Getting Started
+This version of eShop is based on .NET 9.
 https://github.com/dotnet/eshop
 https://github.com/dotnet/eShop.git
 
-
-Getting Started
-This version of eShop is based on .NET 9.
-
 Previous eShop versions:
+https://github.com/dotnet/eShop/tree/release/8.0
 
 .NET 8
 Prerequisites
 Clone the eShop repository: https://github.com/dotnet/eshop
 Install & start Docker Desktop
 
-
+https://github.com/mehmetozkaya/MicroservicesApp
 
 Running the solution
 ***Remember to ensure that Docker is started
@@ -254,3 +253,93 @@ remove Carter from Building Blocks and install for Catalog microservices
 ----------------------------------------------------------------------------------------------
 Sectio 6.Develop Catalog.API Infrastructure, Handler and Endpoint
 55. Introduction - Develop Catalog.API Infrastructure, Handler and Endpoint Classes
+
+58.Develop CommandHandler to Save Product to DB using Martin Library
+https://github.com/MapsterMapper/Mapster
+	install Martin package 8.23.0 in Catalog and basket microservices
+
+
+
+60. EShop Microservices Deployment Strategy
+download PostgreSQL docker image and run image into docker compose environment
+
+61. Setup PostgreSQL DB using Docker-compose file for Multi-container Docker env
+https://hub.docker.com/_/postgres
+Catalog.API project => Add => ContainOrchestrator Support => Docker Compose => OK => Target OS, Linux
+
+62. Add PostgreSQL DB image into Docker-compose file for Multi-container Docker env
+https://github.com/mehmetozkaya/MicroservicesApp
+C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\docker-compose.override.yml
+C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\docker-compose.yml
+
+63. Run Docker-Compose on Visual Studio to setup PostgreSQL DB on Docker
+run docker, and run "Docker Copose". From Console windows connects to PostgreSQL db catalohDb
+C:\Windows\System32>docker ps
+CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+7ca420404567   postgres   "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   catalogdb
+
+C:\Windows\System32>docker exec -it 7ca420404567 bash
+root@7ca420404567:/# psql -U postgres
+psql (18.2 (Debian 18.2-1.pgdg13+1))
+Type "help" for help.
+
+postgres=# \l
+                                                    List of databases
+   Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | Locale | ICU Rules |   Access privileges
+-----------+----------+----------+-----------------+------------+------------+--------+-----------+-----------------------
+ catalogDb | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           |
+ postgres  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           |
+ template0 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | =c/postgres          +
+           |          |          |                 |            |            |        |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | =c/postgres          +
+           |          |          |                 |            |            |        |           | postgres=CTc/postgres
+(4 rows)
+
+postgres=# \c CatalogDb
+connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "CatalogDb" does not exist
+Previous connection kept
+postgres=# \c catalogDb
+You are now connected to database "catalogDb" as user "postgres".
+catalogDb=# \d
+Did not find any relations.
+catalogDb=#
+C:\Windows\System32>
+
+64. Connect Postgres DB from local Catalog Microservices and send POST request
+set Catalog.API as start project, run hhtps mode,
+from postman, Post https://localhost:5050/products > Body > Raw > JSON
+{
+    "Name": "New Product A",
+    "Cagetegory": ["c1","c2"],
+    "Description": "Description Product A",
+    "ImageFile": "ImageFile Product A",
+    "Price": 199
+}
+
+
+https://pgadmin.org/download/
+pgAdmin 4 v9.13 for windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
