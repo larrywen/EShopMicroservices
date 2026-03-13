@@ -330,10 +330,16 @@ create environment variable Localhost and Docker
 
 
 
+Section 7.Develop Catalog.API cross-cutting concerns
+81. Introduction - Develop Catalog.API Cross-cutting Concerns
 
+83.
 
+Install FluentValidation.DependencyInjectionExtensions package 12.1.1
 
-
+84.
+add validation in 
+C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Products\CreateProduct\CreateProductHandler.csalidation
 
 
 
