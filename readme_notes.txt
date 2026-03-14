@@ -2,11 +2,11 @@
 .NET 8 Microservices: DDD, CQRS, Vertical/Clean Architecture
 https://www.udemy.com/course/microservices-architecture-and-implementation-on-dotnet/learn/lecture/42551648#overview
 
+Source Code:
+>>> https://github.com/aspnetrun/run-aspnetcore-microservices
+
 Mehmet Ozkaya
 https://github.com/mehmetozkaya
-
-Source Code:
-https://github.com/aspnetrun/run-aspnetcore-microservices
 
 Getting Started
 This version of eShop is based on .NET 9.
@@ -342,24 +342,25 @@ add validation in
 C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Products\CreateProduct\CreateProductHandler.csalidation
 
 
+85. Validation Pipeline Behaviour with MediatR using Fluent Validation Library
 
 
+Microsoft - Handle errors in ASP.NET Core 7/25/2023
+Exception handler lambda
+in Program.cs
+	app.UseExceptionHandler();
 
 
+89. BuildingBlocks Handling Exceptions Generic Way w/ app.UseExceptionHandler
 
+90. Global Exception Handling with IExceptionHandler interface in Asp.net Core
+Install FluentValidation 12.1.1
+		FluentValidation.AspNetCore 11.3.1 deprecated
 
-
-
-
-
-
-
-
-
-
-
-
-
+91. Register Custom Exception Handling into Asp.net with AddExceptionHandler method
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\BuildingBlocks\BuildingBlocks\Exceptions\Handler\CustomExceptionHandler.cs
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Program.cs
+	one is in container side
 
 
 
