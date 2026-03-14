@@ -391,6 +391,71 @@ Install FluentValidation 12.1.1
 	then Set Catalog.API as Startup Project, open "C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Data\CatalogInitialData.cs",
 	set break point and run
 
+96. Develop Pagination for GetProducts Query with ToPagedListAsync extention method
+	https://martendb.io/documents/querying/linq/paging
+	var pageNumber = 2;
+	var pageSize = 10;
+	var pagedList = theSession.Query<Target>().ToPagedList(pageNumber, pageSize, true);
+
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Products\GetProducts\GetProductsEndpoint.cs
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Products\GetProducts\GetProductsHandler.cs
+
+97. Test Pagination for GetProducts Query with ToPagedListAsync extention method
+	"Get Product", {{catalog_url}}/products?pageNumber=1&pageSize=5
+
+98. Health Check for Catalog Microservices with PostgresDB
+	https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks > Health Checks > postgres > nuget > packagereference
+		<PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="9.0.0" />
+		C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Program.cs
+	https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks?tab=readme-ov-file, > HealthCheckUI > UI.Client > nuget > packagereference
+		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+
+99. Containerize Catalog.API microservices with Docker
+	right click Catalog.API > Add > Docker support > Linux > Ok > overwrite / yes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
