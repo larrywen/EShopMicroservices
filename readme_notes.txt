@@ -360,8 +360,36 @@ Install FluentValidation 12.1.1
 91. Register Custom Exception Handling into Asp.net with AddExceptionHandler method
 	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\BuildingBlocks\BuildingBlocks\Exceptions\Handler\CustomExceptionHandler.cs
 	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Program.cs
-	one is in container side
 
+
+92. Logging Behavior in MediatR Pipeline for Cross-cutting concerns
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\BuildingBlocks\BuildingBlocks\Behaviors\LoggingBehavior.cs
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Program.cs
+
+93. Test Logging Behaviour for all MediatR Requests on Catalog.API microservices
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Products\CreateProduct\CreateProductHandler.cs
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Products\DeleteProduct\DeleteProductHandler.cs
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Products\UpdateProduct\UpdateProductHandler.cs
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Products\GetProducts\GetProductsHandler.cs
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Products\GetProductById\GetProductByIdHandler.cs
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Products\GetProductByCategory\GetProductByCategoryHandler.cs
+
+	go to C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\BuildingBlocks\BuildingBlocks\Behaviors\LoggingBehavior.cs,set break point,
+	start project, send request from postman
+
+94. Seeding CatalogDb with Marten Initial Baseline Data (IInitialData interface)
+	https://martendb.io/documents/initial-data.html
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Data\CatalogInitialData.cs
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Program.cs
+
+95. Test Seeding Initial Data with Marten on PostgresDB for Catalog.API microservice
+	start docker desktop, 
+	make sure catalogdb container is not running
+	right clik docker-compose from vs, Set as Startup Project, Start without debugging
+	catalogdb container is running now
+
+	then Set Catalog.API as Startup Project, open "C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Catalog\Catalog.API\Data\CatalogInitialData.cs",
+	set break point and run
 
 
 
