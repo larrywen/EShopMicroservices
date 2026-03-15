@@ -413,15 +413,41 @@ Install FluentValidation 12.1.1
 99. Containerize Catalog.API microservices with Docker
 	right click Catalog.API > Add > Docker support > Linux > Ok > overwrite / yes
 
+100. Orchestrate Catalog.API microservices with Docker-compose file
+	right click Catalog.API > Add > ContainernOrchestrator Support > Docker Compose > Linux
 
+	added to C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\docker-compose.yml
+	  catalog.api:
+		image: ${DOCKER_REGISTRY-}catalogapi
+		build:
+		  context: .
+		  dockerfile: Services/Catalog/Catalog.API/Dockerfile
 
+VS auto generates C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\docker-compose.override.yml
+need manually update ports and enviroment variables etc.
+  catalog.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+	  - ConnectionStrings__Database=Server=catalogdb;Port=5432;Database=catalogDb;User Id=postgres;Password=postgres;Include Error Detail=true
+	                  #  __ overriding the existing configuration with double underscore
+    depends_on:       #
+      - catalogdb     #  database server name
+	ports:
+      - "6000:8080"   #
+      - "6060:8081"   #
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
 
-
-
-
-
-
-
+101. TEST - Docker-compose Catalog.API microservices with PostgresDB
+two ways to run docker compose
+1) right click "docker compose" > open in terminal, which starts powershell > run ""docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d" command maually 
+2) right click "docker compose" > Setup as startup project > then run,
+ Catalog API start at https://localhost:6060/, whch is a docker network
 
 
 
