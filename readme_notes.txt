@@ -174,7 +174,7 @@ Vertical Slice Architecture-Organizes code into geature folders,each feature enc
 -Minimal APIs and Routing in ASP.NET 8
 -ORM pattern:Object-Relational Mapping abstracts database interactions, work with database object using high-level codes.
 
-3. Libraries Nuget packages ofCatalog Microservices
+3. Libraries Nuget packages of Catalog Microservices
 -MediatR for CQRS: MediatR library simplifies the implementation of the CQRS pattern.
 -Carter for API Endppints: Routing and handling HTTP requests, easier to define PAI endpoints with clean and concise code.
 -Marten for PostgreSQL interaction:Use PostgreSQL as a document DB. It leverages PostgreqSQL's JSON capabilities for storing, querying, and managing documents.
@@ -449,42 +449,88 @@ two ways to run docker compose
 2) right click "docker compose" > Setup as startup project > then run,
  Catalog API start at https://localhost:6060/, whch is a docker network
 
+ Section 8. Basket Microservices with vertical slice architectureand CQRS
+ 102. Introduction - Basket Microservices with Vertical Slice Architecture and CQRS
+
+
+ 103. Create Asp.Net Web API for Basket.API Microservice in Microservices Solution
+*** create Basket folder under Services, create new project > ASP.NET Core Empty > 
+ Project Name: Basket.API
+ Location: C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Basket
+
+ 104. Set Port Numbers for Basket.API Microservice - Modify Launch Settings
+ update port # in C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Basket\Basket.API\Properties\launchSettings.json
 
 
 
+106. Technical Analysis of Basket Microservices: Architectures, Patterns, Libraries
 
 
 
+108. Develop Vertical Slice Feature Folder with CQRS and MediatR
 
 
+109. Develop GetBasket Feature Handler class with CQRS and MediatR
+	Basket.API add project reference to BuildingBlocks project
 
 
+111. Develop StoreBasket Feature Handler class with CQRS and MediatR
+
+114. Develop Delete Basket Endpoint with Minimal Apis and Carter
+
+115. Register MediatR and Carter libraries into Asp.Net Dependency Injection Service
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Basket\Basket.API\Program.cs
 
 
+117. Infrastructure - Data Concerns for Basket API - Marten .NET Transactional DB
 
 
+118. Develop BasketRepository Class using Marten Library
 
 
+119. Implement IBasketRepository Class using Marten IDocumentSession interface
+pdf page 212 Opening Sessions in Marten as Document DB
+install Marten library to Basket.API
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Basket\Basket.API\Data\BasketRepository.cs
 
 
+120. Register and Configure Marten DocumentDB library into Program.cs asp.net DI
+	C:\CodeUdemy\MehmetOzkaya\EShopMicroservices\src\Services\Basket\Basket.API\Program.cs
+
+121. Setup PostgreSQL DB for Basket ms using Docker-compose file for Multi-container
+	https://hub.docker.com/_/postgres
+
+Example compose.yaml for postgres:
+
+# Use postgres/example user/password credentials
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+123. Develop Basket Features in CQRS Handler classes using BasketRepository
 
 
+124. Connect Postgres DB from local Basket Microservices and send POST request
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Section 9: Basket Miroservices apply Distributed Caching with Redis
+127. Distributed Caching with Redis in Basket Microservices
